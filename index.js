@@ -52,13 +52,11 @@ app.post('/create-session', async (req, res) => {
 app.get('/retrieve-session/:sessionId', async (req, res) => {
   try {
     const sessionId = req.params.sessionId;
-    console.log(sessionId);
     
     
     const response = await stripe.checkout.sessions.retrieve(
         sessionId
       );
-      console.log(response);
       
       const responseBodyJson = JSON.stringify(response);
       res.setHeader('Content-Type', 'application/json');
