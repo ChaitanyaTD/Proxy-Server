@@ -72,11 +72,5 @@ app.get('/retrieve-session/:sessionId', async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
-
-
-app.use("/.netlify/functions/app", router);
+app.use("/.netlify/functions/api", express.Router);
 module.exports.handler = serverless(app);
